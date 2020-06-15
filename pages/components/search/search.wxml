@@ -1,0 +1,289 @@
+<view class="bg-white nav text-center search-box" style="padding-bottom: {{searchboxPadding}}">
+  <view
+    class="cu-item {{item.value==TabCur?'text-white bg-blue cur':''}}"
+    wx:for="{{ tabsSearch }}"
+    wx:key="index"
+    bindtap="tabSelect"
+    data-id="{{item.value}}">
+    {{item.label}}
+  </view>
+  <view class="gia" wx:if="{{ TabCur == 1 }}">
+    <!-- 形状 -->
+    <!-- <view class="cu-bar bg-white">
+      <view class="action">
+        形状
+      </view>
+    </view>
+    <view class="list-shape">
+      <view class="list-item-shape" wx:for="{{shape}}">
+        <image class="item-img" src="{{item.value}}" />
+      </view>
+    </view> -->
+    <!-- 规格 -->
+    <view wx:if="{{ggGiaList.length>0}}">
+      <view class="cu-bar bg-white">
+        <view class="action">规格</view>
+      </view>
+      <scroll-view scroll-x="{{true}}" class="sx">
+        <view class="list-tags">
+          <text bindtap="tapSpecsItem" data-index="{{index}}" data-value="{{item.value}}" class="list-item-tag {{item.selected ? 'active' : ''}}" wx:for="{{ggGiaList}}" wx:key="index">{{item.value}}</text>
+        </view>
+      </scroll-view>
+    </view>
+    <!-- 重量 -->
+    <!-- <view>
+      <view class="cu-bar bg-white">
+        <view class="action">重量</view>
+      </view>
+      <view class="list-tags">
+        <input bindinput="inputZLStart" value="{{giaParams.zlStart}}" class="weui-input" type="digit" placeholder="克拉"/>-
+        <input bindinput="inputZLEnd" value="{{giaParams.zlEnd}}" class="weui-input" type="digit" placeholder="克拉"/>
+      </view>
+    </view> -->
+    <!-- 颜色 -->
+    <view wx:if="{{ysGiaList.length>0}}">
+      <view class="cu-bar bg-white">
+        <view class="action">颜色</view>
+      </view>
+      <scroll-view scroll-x="{{true}}" class="sx">
+        <view class="list-tags">
+          <text bindtap="tapColorItem" data-index="{{index}}" data-value="{{item.value}}" class="list-item-tag {{item.selected ? 'active' : ''}}" wx:for="{{ysGiaList}}" wx:key="index">{{item.value}}</text>
+        </view>
+      </scroll-view>
+    </view>
+    <!-- 净度 -->
+    <view wx:if="{{jbGiaList.length>0}}">
+      <view class="cu-bar bg-white">
+        <view class="action">净度</view>
+      </view>
+      <scroll-view scroll-x="{{true}}" class="sx">
+        <view class="list-tags">
+          <text bindtap="tapJDItem" data-index="{{index}}" data-value="{{item.value}}" class="list-item-tag {{item.selected ? 'active' : ''}}" wx:for="{{jbGiaList}}" wx:key="index">{{item.value}}</text>
+        </view>
+      </scroll-view>
+    </view>
+    <!-- 快捷键 -->
+    <view wx:if="{{quickGiaList.length>0}}">
+      <view class="cu-bar bg-white">
+        <view class="action">快捷键</view>
+      </view>
+      <scroll-view scroll-x="{{true}}" class="sx">
+        <view class="list-tags">
+          <text bindtap="tapQuickItem" data-index="{{index}}" data-value="{{item.value}}" class="list-item-tag {{quickGiaIndex==index ? 'active' : ''}}" wx:for="{{quickGiaList}}" wx:key="index">{{item.value}}</text>
+        </view>
+      </scroll-view>
+    </view>
+    <!-- 切工 -->
+    <view wx:if="{{qgGiaList.length>0}}">
+      <view class="cu-bar bg-white">
+        <view class="action">切工</view>
+      </view>
+      <scroll-view scroll-x="{{true}}" class="sx">
+        <view class="list-tags">
+          <text bindtap="tapQGkItem" data-index="{{index}}" data-value="{{item.value}}" class="list-item-tag {{item.selected ? 'active' : ''}}" wx:for="{{qgGiaList}}" wx:key="index">{{item.value}}</text>
+        </view>
+      </scroll-view>
+    </view>
+    <!-- 抛光 -->
+    <view wx:if="{{pgGiaList.length>0}}">
+      <view class="cu-bar bg-white">
+        <view class="action">抛光</view>
+      </view>
+      <scroll-view scroll-x="{{true}}" class="sx">
+        <view class="list-tags">
+          <text bindtap="tapPGkItem" data-index="{{index}}" data-value="{{item.value}}" class="list-item-tag {{item.selected ? 'active' : ''}}" wx:for="{{pgGiaList}}" wx:key="index">{{item.value}}</text>
+        </view>
+      </scroll-view>
+    </view>
+    <!-- 对称 -->
+    <view wx:if="{{dcGiaList.length>0}}">
+      <view class="cu-bar bg-white">
+        <view class="action">对称</view>
+      </view>
+      <scroll-view scroll-x="{{true}}" class="sx">
+        <view class="list-tags">
+          <text bindtap="tapDCItem" data-index="{{index}}" data-value="{{item.value}}" class="list-item-tag {{item.selected ? 'active' : ''}}" wx:for="{{dcGiaList}}" wx:key="index">{{item.value}}</text>
+        </view>
+      </scroll-view>
+    </view>
+    <!-- 荧光 -->
+    <view wx:if="{{ygGiaList.length>0}}">
+      <view class="cu-bar bg-white">
+        <view class="action">荧光</view>
+      </view>
+      <scroll-view scroll-x="{{true}}" class="sx">
+        <view class="list-tags">
+          <text bindtap="tapYGItem" data-index="{{index}}" data-value="{{item.value}}" class="list-item-tag {{item.selected ? 'active' : ''}}" wx:for="{{ygGiaList}}" wx:key="index">{{item.value}}</text>
+        </view>
+      </scroll-view>
+    </view>
+    <!-- 证书 -->
+    <view wx:if="{{zsGiaList.length>0}}">
+      <view class="cu-bar bg-white">
+        <view class="action">证书</view>
+      </view>
+      <scroll-view scroll-x="{{true}}" class="sx">
+        <view class="list-tags">
+          <text bindtap="tapZSItem" data-index="{{index}}" data-value="{{item.value}}" class="list-item-tag {{zsGiaIndex==index ? 'active' : ''}}" wx:for="{{zsGiaList}}" wx:key="index">{{item.value}}</text>
+        </view>
+      </scroll-view>
+    </view>
+    <!-- 地点 -->
+    <view wx:if="{{placeGiaList.length>0}}">
+      <view class="cu-bar bg-white">
+        <view class="action">地点</view>
+      </view>
+      <scroll-view scroll-x="{{true}}" class="sx">
+        <view class="list-tags">
+          <text bindtap="tapPlaceItem" data-index="{{index}}" data-value="{{item.value}}" class="list-item-tag {{placeGiaIndex==index ? 'active' : ''}}" wx:for="{{placeGiaList}}" wx:key="index">{{item.value}}</text>
+        </view>
+      </scroll-view>
+    </view>
+    <!-- 价格 -->
+    <view>
+      <view class="cu-bar bg-white">
+        <view class="action">价格</view>
+      </view>
+      <!-- <scroll-view scroll-x="{{false}}" class="sx"> -->
+        <view class="list-tags1">
+          <input bindinput="inputPriceStart" value="{{giaParams.priceStart}}" class="weui-input" type="digit" placeholder="最低价 ￥"/>
+          <text decode="{{true}}">&emsp;-&emsp;</text>
+          <input bindinput="inputPriceEnd" value="{{giaParams.priceEnd}}" class="weui-input" type="digit" placeholder="最高价 ￥"/>
+        </view>
+      <!-- </scroll-view> -->
+    </view>
+    <!-- 确定-重置 -->
+    <view class="btn-bottom" style="bottom: {{resetPadding}}">
+      <button class="btn-reset" bindtap="onTap" bindtap="resetGIA">重置</button>
+      <button class="btn-search" bindtap="onTap" bindtap="searchGIA">搜索</button>
+    </view>
+  </view>
+  <view class="kongtuo" wx:else>
+    <!-- 搜索 -->
+    <view class="list-shape">
+      <view data-index="{{index}}" data-value="{{item.value}}"class="list-item-shape" wx:for="{{diamondType}}" wx:key="{{index}}" data-shape-index="{{index}}" bindtap="selectShape">
+        <image class="item-img" src="../../images/{{currentShapeIndex==index ? currentShapeIndex : index}}-{{currentShapeIndex==index ? '0' : '1'}}.png" />
+          <text class="item-tag {{currentShapeIndex==index ? 'active' : ''}}">{{index==0?'女戒':(index==1?'男戒':(index==2?'吊坠': ''))}}</text>
+      </view>
+    </view>
+    <!-- 镶口 -->
+    <view>
+      <view class="cu-bar bg-white">
+        <view class="action">镶口</view>
+      </view>
+      <!-- <view class="list-tags">
+        <input bindinput="inputXKStart" value="{{ktParams.xkgyStart}}" class="weui-input" type="digit" placeholder="输入镶口/分"/>-
+        <input bindinput="inputXKEnd" value="{{ktParams.xkgyEnd}}" class="weui-input" type="digit" placeholder="输入镶口/分"/>
+      </view> -->
+      <!-- 分 -->
+      <scroll-view scroll-x="{{true}}" class="sx">
+        <view class="list-tags">
+          <text class="list-item-tag" bindtap="tapXKItem" data-index="{{index}}" data-value="{{item.value}}" class="list-item-tag {{item.selected ? 'active' : ''}}" wx:for="{{xkgyTzList}}" wx:key="index">{{item.value}}分</text>
+        </view>
+      </scroll-view>
+    </view>
+    <!-- 手寸 -->
+    <view>
+      <view class="cu-bar bg-white">
+        <view class="action">手寸</view>
+      </view>
+      <!-- <view class="list-tags">
+        <input bindinput="inputSCStart" value="{{ktParams.scStart}}" class="weui-input" type="digit" placeholder="输入手寸/#"/>-
+        <input bindinput="inputSCEnd" value="{{ktParams.scEnd}}" class="weui-input" type="digit" placeholder="输入手寸/#"/>
+      </view> -->
+      <!-- size -->
+      <scroll-view scroll-x="{{true}}" class="sx">
+        <view class="list-tags">
+          <text class="list-item-tag" bindtap="tapSCItem" data-index="{{index}}" data-value="{{item.value}}" class="list-item-tag {{item.selected ? 'active' : ''}}" wx:for="{{scTzList}}" wx:key="index">{{item.value}}#</text>
+        </view>
+      </scroll-view>
+    </view>
+    <!-- 金重 -->
+    <view>
+      <view class="cu-bar bg-white">
+        <view class="action">金重</view>
+      </view>
+      <!-- <view class="list-tags">
+        <input bindinput="inputJZStart" value="{{ktParams.jjzStart}}" class="weui-input" type="digit" placeholder="输入金重/g"/>-
+        <input bindinput="inputJZEnd" value="{{ktParams.jjzEnd}}" class="weui-input" type="digit" placeholder="输入金重/g"/>
+      </view> -->
+      <!-- weight -->
+      <scroll-view scroll-x="{{true}}" class="sx">
+        <view class="list-tags">
+          <text class="list-item-tag" bindtap="tapJZItem" data-index="{{index}}" data-value="{{item.value}}" class="list-item-tag {{item.selected ? 'active' : ''}}" wx:for="{{jjzTzList}}" wx:key="index">{{item.value}}g</text>
+        </view>
+      </scroll-view>
+    </view>
+    <!-- 工厂 -->
+    <view wx:if="{{factoryTzList.length>0}}">
+      <view class="cu-bar bg-white">
+        <view class="action">工厂</view>
+      </view>
+      <scroll-view scroll-x="{{true}}" class="sx">
+        <view class="list-tags">
+          <text bindtap="tapGZItem" data-index="{{index}}" data-value="{{item.value}}" class="list-item-tag {{factoryTzIndex==index ? 'active' : ''}}" wx:for="{{factoryTzList}}" wx:key="index">{{item.value}}</text>
+        </view>
+      </scroll-view>
+    </view>
+    <!-- 材质 -->
+    <view wx:if="{{czTzList.length>0}}">
+      <view class="cu-bar bg-white">
+        <view class="action">材质</view>
+      </view>
+      <scroll-view scroll-x="{{true}}" class="sx">
+        <view class="list-tags">
+          <text bindtap="tapCZItem" data-index="{{index}}" data-value="{{item.value}}" class="list-item-tag {{item.selected ? 'active' : ''}}" wx:for="{{czTzList}}" wx:key="index">{{item.value}}</text>
+        </view>
+      </scroll-view>
+    </view>
+    <!-- 工艺 -->
+    <view wx:if="{{gyTzList.length>0}}">
+      <view class="cu-bar bg-white">
+        <view class="action">工艺</view>
+      </view>
+      <scroll-view scroll-x="{{true}}" class="sx">
+        <view class="list-tags">
+          <text bindtap="tapGYItem" data-index="{{index}}" data-value="{{item.value}}" class="list-item-tag {{gyTzIndex==index ? 'active' : ''}}" wx:for="{{gyTzList}}" wx:key="index">{{item.value}}</text>
+        </view>
+      </scroll-view>
+    </view>
+    <!-- 戒臂 -->
+    <view wx:if="{{jbTzList.length>0 && isMale}}">
+      <view class="cu-bar bg-white">
+        <view class="action">戒臂</view>
+      </view>
+      <scroll-view scroll-x="{{true}}" class="sx">
+        <view class="list-tags">
+          <text bindtap="tapJBItem" data-index="{{index}}" data-value="{{item.value}}" class="list-item-tag {{item.selected ? 'active' : ''}}" wx:for="{{jbTzList}}" wx:key="index">{{item.value}}</text>
+        </view>
+      </scroll-view>
+    </view>
+    <!-- 副石 -->
+    <view wx:if="{{stones.length>0}}">
+      <view class="cu-bar bg-white">
+        <view class="action">副石</view>
+      </view>
+      <scroll-view scroll-x="{{true}}" class="sx">
+        <view class="list-tags">
+          <text bindtap="tapFSItem" data-index="{{index}}" data-value="{{item}}" class="list-item-tag {{stonesIndex==index ? 'active' : ''}}" wx:for="{{stones}}" wx:key="index">{{item}}</text>
+        </view>
+      </scroll-view>
+    </view>
+    <!-- 热门搜索 -->
+    <view wx:if="{{hotTzList.length>0}}">
+      <view class="cu-bar bg-white">
+        <view class="action">热门搜索</view>
+      </view>
+      <scroll-view scroll-x="{{true}}" class="sx">
+        <view class="list-tags">
+          <text bindtap="tapRMItem" data-index="{{index}}" data-value="{{item.value}}" class="list-item-tag {{hotTzIndex==index ? 'active' : ''}}" wx:for="{{hotTzList}}" wx:key="index">{{item.value}}</text>
+        </view>
+      </scroll-view>
+    </view>
+    <!-- 确定-重置 -->
+    <view class="btn-bottom" style="bottom: {{resetPadding}}">
+      <button class="btn-reset" bindtap="resetSupport">重置</button>
+      <button class="btn-search" bindtap="searchSupport">搜索</button>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,177 @@
+.shop-car-goods-detail {
+  background-color: #ffffff;
+  
+  .swiper {
+    height: 640rpx;
+
+    .goods-imgs {
+      height: 100%;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: auto 100%;
+    }
+  }
+  
+  &-img {
+    text-align: center;
+    // max-height: 600rpx;
+    border-bottom: 1px solid #ddccdd;
+
+    image {
+      max-width: 600rpx;
+      max-height: 600rpx;
+    }
+  }
+
+  // 商品规格
+  .selected-spec {
+    // height: 88rpx;
+    // line-height: 88rpx;
+    padding: 56rpx 56rpx 0;
+  }
+
+  // 商品信息
+  &-info {
+    padding: 36rpx 56rpx;
+
+    &-vip-price {
+      color: #863d41;
+      margin-top: 20rpx;
+
+      .text-bigger {
+        font-size: 36rpx;
+      }
+    }
+
+    &-specs {
+      margin-top: 20rpx;
+      color: #3d3d3d;
+    }
+
+    &-labels {
+      margin-top: 20rpx;
+
+      &-item {
+        height: 44rpx;
+        line-height: 44rpx;
+        color: #b5b5b5;
+        border: 1px solid #b5b5b5;
+        padding: 0 22rpx;
+        border-radius: 50rpx;
+
+        &:not(:first-child) {
+          margin-left: 8rpx;
+        }
+      }
+    }
+
+    &-table {
+      display: inline-block;
+      padding-bottom: 140rpx;
+
+      &-td {
+        float: left;
+        width: 50%;
+        height: 100rpx;
+        line-height: 100rpx;
+        text-indent: 30rpx;
+        color: #3d3d3d;
+        position: relative;
+
+        &::after {
+          content: '';
+          position: absolute;
+          left: 0;
+          bottom: 0;
+          width: 100%;
+          height: 2rpx;
+          background-color: #dfdfdf;
+        }
+        &::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          right: 0;
+          width: 2rpx;
+          height: 100%;
+          background-color: #dfdfdf;
+        }
+
+        &:nth-child(1) {
+          font-weight: bold;
+          &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 0;
+            height: 100%;
+            background-color: #dfdfdf;
+          }
+        }
+        &:nth-child(2) {
+          font-weight: bold;
+          &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 0;
+            height: 100%;
+            background-color: #dfdfdf;
+          }
+        }
+      }
+    }
+  }
+}
+
+.goods-recommend {
+  padding: 0 20rpx 140rpx 20rpx;
+  &-title {
+    color: #3d3d3d;
+    margin: 44rpx 0;
+    font-size: 32rpx;
+  }
+}
+
+.btn-goods-operation {
+  min-width: 60%;
+  display: inline-flex;
+
+  .btn {
+    min-width: 48%;
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 30rpx;
+    text-align: center;
+    height: 80rpx;
+    line-height: 80rpx;
+  }
+
+  .add-shop-car {
+    border-radius: 50rpx 0 0 50rpx;
+    background-color: #ffc200;
+  }
+
+  .buy-now {
+    border-radius: 0 50rpx 50rpx 0;
+    background-color: #fe5d00;
+  }
+}
+
+.tips {
+  text-align: center;
+  font-size: 40rpx;
+  margin: 84rpx 40rpx 40rpx;
+  line-height: 60rpx;
+}
+
+.btn-i-know {
+  color: #ffffff;
+  text-align: center;
+  margin: 20rpx 40rpx 80rpx;
+  height: 84rpx;
+  line-height: 84rpx;
+  font-size: 36rpx;
+}

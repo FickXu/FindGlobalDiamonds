@@ -1,0 +1,116 @@
+<!--pages/home/home.wxml-->
+<cu-custom bgColor="bg-white" isBack="{{true}}">
+	<view slot="content">{{ title }}</view>
+</cu-custom>
+
+<view class="page-container">
+  <view class="notice-info" style="top: {{statusBar}}">
+    <view class="cuIcon-notification">
+      <text decode="{{true}}">&emsp;点击查看钻石详情，加入购物车急速回复！</text>
+    </view>
+  </view>
+  
+  <view class="result-table">
+    <view class="result-table-body">
+      <view
+        class="result-table-body-th">
+        <!-- 数据 -->
+        <view class="goods-list">
+          <!-- <view class="result-table-body-tr header" style="z-index: 19; top: {{statusBar+60}}; position: fixed"> -->
+          <view class="result-table-body-tr header">
+            <view class="result-table-body-tr-td"></view>
+            <view class="result-table-body-tr-td">形状</view>
+            <view class="result-table-body-tr-td">重量</view>
+            <view class="result-table-body-tr-td">颜色</view>
+            <view class="result-table-body-tr-td">净度</view>
+            <view class="result-table-body-tr-td">价格</view>
+            <view class="result-table-body-tr-td">切工</view>
+            <view class="result-table-body-tr-td">抛光</view>
+            <view class="result-table-body-tr-td">对称</view>
+            <view class="result-table-body-tr-td">荧光</view>
+            <view class="result-table-body-tr-td">规格</view>
+            <view class="result-table-body-tr-td">图片</view>
+            <view class="result-table-body-tr-td">视频</view>
+            <!-- <view class="result-table-body-tr-td">快捷键</view> -->
+            <view class="result-table-body-tr-td td-large">证书</view>
+            <view class="result-table-body-tr-td">地点</view>
+          </view>
+          <checkbox-group bindchange="checkboxChange">
+            <view class="result-table-body-tr" wx:for="{{giaList}}" wx:key="index">
+              <view class="result-table-body-tr-td col-checkbox">
+                <checkbox value="{{item.id}}" checked="{{item.checked}}"></checkbox>
+              </view>
+              <view class="result-table-body-tr-td">{{item.xz || ''}}</view>
+              <view class="result-table-body-tr-td">{{item.zl || ''}}</view>
+              <view class="result-table-body-tr-td">{{item.ys || ''}}</view>
+              <view class="result-table-body-tr-td">{{item.jb || ''}}</view>
+              <view class="result-table-body-tr-td">{{item.goodsRealSellPrice || ''}}</view>
+              <view class="result-table-body-tr-td">{{item.qg || ''}}</view>
+              <view class="result-table-body-tr-td">{{item.pg || ''}}</view>
+              <view class="result-table-body-tr-td">{{item.dc || ''}}</view>
+              <view class="result-table-body-tr-td">{{item.yg || ''}}</view>
+              <view class="result-table-body-tr-td">{{item.gg || ''}}</view>
+              <!-- 图片 -->
+              <view class="result-table-body-tr-td">
+                <view
+                  class="text-blue"
+                  data-big-images="{{item.bigImg}}"
+                  bindtap="previewImage"
+                  wx:if="{{item.bigImg}}"
+                  >
+                  查看
+                </view>
+                <text wx:else>无</text>
+              </view>
+              <!-- 视频 -->
+              <view class="result-table-body-tr-td">
+                <view
+                  class="text-blue"
+                  data-small-video="{{item.smallVideo}}"
+                  bindtap="playVideo"
+                  wx:if="{{item.smallVideo}}"
+                  >
+                  查看
+                </view>
+                <text wx:else>无</text>
+              </view>
+              <!-- <view class="result-table-body-tr-td">{{item.kjj || ''}}</view> -->
+              <view class="result-table-body-tr-td td-large">{{item.zsh || ''}}</view>
+              <view class="result-table-body-tr-td">{{item.bz2 || ''}}</view>
+            </view>
+          </checkbox-group>
+        </view>
+      </view>
+    </view>
+  </view>
+  
+  <view class="pages" style="height:  {{classPagesHeight}}">
+    <view class="per-page cuIcon-back" bindtap="prePage"></view>
+    <view class="page-size-info">
+      <text class="page-current">第{{currentPage}}页/</text>
+      <text class="page-count" decode="{{true}}">共{{maxPage}}页&emsp;</text>
+      <text class="page-current">总数{{count}}</text>
+    </view>
+    <view class="next-page cuIcon-right" bindtap="nextPage"></view>
+  </view>
+</view>
+
+<!-- 购买商品 -->
+<view class="cu-bar tabbar bg-white shadow foot">
+  <view class="action text-grey text-green" bindtap="goHomePage">
+    <view class="text-green">
+      <view class="cuIcon-homefill"></view>
+      首页
+    </view>
+  </view>
+  <view class="btn-goods-operation">
+    <view class="btn add-shop-car" bindtap="addShopCar">加入购物车</view>
+    <view class="btn buy-now" bindtap="placedirectly">立即购买</view>
+  </view>
+</view>
+
+<!-- 联系客服 -->
+<customer-service wx:if="{{modalShow}}"></customer-service>
+
+<!-- 视频播放 -->
+<video-player video-show="{{isPlayerVideo}}" video-url="{{videoUrl}}"></video-player>

@@ -1,0 +1,22 @@
+{
+  "pages": [
+    "pages/home/home",
+    "pages/goods-detail/goods-detail",
+    "pages/shop-car/shop-car",
+    "pages/orders/orders",
+    "pages/orders-detail/orders-detail",
+    "pages/search-result-support/search-result-support",
+    "pages/search-result-gia/search-result-gia",
+    "pages/address-list/address-list"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fafafa",
+    "navigationBarTextStyle": "black",
+    "navigationStyle": "custom"
+  },
+  "sitemapLocation": "sitemap.json",
+  "usingComponents": {
+    "cu-custom":"/colorui/components/cu-custom"
+  }
+}

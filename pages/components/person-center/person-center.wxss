@@ -1,0 +1,29 @@
+.person-center {
+  background-color: #f6f7f8;
+  /* 用户基本信息 */
+}
+.person-center .user-info {
+  height: 300rpx;
+  padding: 56rpx 80rpx;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+}
+.person-center .user-info .user-photo {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 100%;
+}
+.person-center .user-info-name {
+  font-size: 48rpx;
+  color: #685c41;
+  display: flex;
+  flex-direction: column;
+  margin-left: 30rpx;
+}
+.person-center .user-info-name .small {
+  font-size: 32rpx;
+}
+.person-center .custome-icon-size {
+  font-size: 40rpx;
+}

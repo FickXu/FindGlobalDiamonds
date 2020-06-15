@@ -1,0 +1,77 @@
+.goods-list {
+  margin-top: 20rpx;
+  background-color: #fff;
+  padding: 0 20rpx 30rpx 20rpx;
+  border-radius: 30rpx;
+  overflow: hidden;
+  position: relative;
+  
+  &:not(:first-child) {
+    margin-top: 20rpx;
+  }
+
+  .invalid-goods {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, .8);
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 60rpx;
+    color: #fff;
+    z-index: 10;
+  }
+
+  &-body {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 56rpx 0 20rpx 0;
+    position: relative;
+
+    // 删除
+    .goods-delete-box {
+      position: absolute;
+      right: 0rpx;
+      top: 0rpx;
+      font-size: 46rpx;
+      z-index: 11;
+    }
+
+    .goods-view {
+      flex: 1;
+      .img {
+        min-width: 150rpx;
+        max-width: 150rpx;
+        min-height: 150rpx;
+        max-height: 150rpx;
+        margin-left: 10rpx;
+      }
+    }
+
+    .goods-attr {
+      flex: 4;
+      margin-left: 10rpx;
+
+      &-shape {
+        color: #3e3e3e;
+      }
+
+      &-selling {
+        color: #b3b3b3;
+        margin-top: 20rpx;
+        &-price {
+          text-decoration: line-through;
+        }
+      }
+
+      &-vip {
+        margin-top: 10rpx;
+        color: #893c41;
+      }
+    }
+  }
+}

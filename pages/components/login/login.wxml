@@ -1,0 +1,28 @@
+<view class="login-out-area">
+  <view class="align-center login-logo">
+    <image class="logo" src="{{ loginPageInfo.iconUrl }}"></image>
+  </view>
+  <view class="align-center login-title">
+    <text>{{ loginPageInfo.title }}</text>
+  </view>
+  <view class="login-btn">
+    <button class="button"  open-type='getUserInfo' bindgetuserinfo="bindgetuserinfo">{{ loginPageInfo.btnText }} </button>
+  </view>
+  <view class="bg-login">
+    <image class="bg-img" src="../../images/bg-login.png" />
+  </view>
+</view>
+
+<view class="cu-modal {{isAuthorPhone?'show':''}}">
+  <view class="cu-dialog bg-white">
+    <view class="author-phone-title">全球找钻网</view>
+    <view class="author-phone-desc">全球找钻网需要您授权来获取手机号</view>
+    <view class="cu-bar bg-white btn-argee">
+      <button
+        class="action margin-0 flex-sub solid-left bg-gold btn-i-know"
+        open-type="getPhoneNumber"
+        bindgetphonenumber="getPhoneNumber"
+        >同意</button>
+    </view>
+  </view>
+</view>

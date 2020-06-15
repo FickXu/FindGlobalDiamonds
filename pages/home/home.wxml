@@ -1,0 +1,33 @@
+<!--pages/home/home.wxml-->
+<cu-custom bgColor="bg-white">
+	<view slot="content">{{ title }}</view>
+</cu-custom>
+
+<button open-type="contact" class="btn-service" style="background-image: url({{bgService}})" wx:if="{{PageCur == 'home'}}"></button>
+
+<login wx:if="{{!isLogin && loginCode == 10007 && PageCur == 'home'}}" bind:login="login"></login>
+<search wx:if="{{loginCode != 10007 && PageCur == 'home'}}" style="display: {{showSearch}}"></search>
+<contact-me wx:if="{{PageCur == 'contact-me'}}"></contact-me>
+<person-center wx:if="{{isLogin && PageCur == 'person-center'}}"></person-center>
+
+
+<view class="cu-bar tabbar bg-white shadow foot">
+  <view class="action text-grey {{PageCur == 'home' ? 'text-blue' : ''}}" bindtap="routerPage" data-page="home">
+    <view class="{{PageCur == 'home' ? 'text-blue': ''}}">
+      <view class="cuIcon-homefill"></view>
+      首页
+    </view>
+  </view>
+  <view class="action text-grey add-action" bindtap="routerPage" data-page="contact-me">
+    <view class="{{PageCur == 'contact-me' ? 'text-blue': ''}}">
+      <view class="cuIcon-markfill"></view>
+      联系我们
+    </view>
+  </view>
+  <view class="action text-grey {{PageCur == 'person-center' ? 'text-blue' : ''}}" bindtap="routerPage" data-page="person-center">
+    <view class="{{PageCur == 'person-center' ? 'text-blue': ''}}">
+      <view class="cuIcon-myfill"></view>
+      我的
+    </view>
+  </view>
+</view>

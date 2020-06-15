@@ -1,0 +1,30 @@
+<cu-custom bgColor="bg-white" isBack="{{true}}">
+	<view slot="content">{{ title }}</view>
+</cu-custom>
+
+<view class="page-container">
+  <view class="result-list">
+    <view class="result-list-item" wx:for="{{supportList}}" wx:key="{{item.id}}" bindtap="goToGoodsDetail" data-goods-id="{{item.id}}" data-goods-no="{{item.goodsNo}}">
+      <image class="goods-img" src="{{item.smallImg || defalultImageUrlTz}}"></image>
+      <view class="goods-attr">
+        <text class="goods-attr-name">{{item.title || ''}}</text>
+        <text class="goods-attr-amount">{{item.showPrice}}</text>
+      </view>
+      <view class="goods-attr">
+        <!-- <image class="goods-attr-tag" src="{{item.url}}"></image> -->
+        <view></view>
+        <view class="goods-attr-stock">库存{{item.stockQuantity}}</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="pages" style="height:  {{classPagesHeight}}">
+    <view class="per-page cuIcon-back" bindtap="prePage"></view>
+    <view class="page-size-info">
+      <text class="page-current">第{{currentPage}}页/</text>
+      <text class="page-count" decode="{{true}}">共{{maxPage}}页&emsp;</text>
+      <text class="page-current">总数{{count}}</text>
+    </view>
+    <view class="next-page cuIcon-right" bindtap="nextPage"></view>
+  </view>
+</view>

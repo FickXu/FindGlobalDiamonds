@@ -1,0 +1,93 @@
+<!--pages/home/home.wxml-->
+<cu-custom bgColor="bg-white" isBack="{{true}}">
+	<view slot="content">{{ title }}</view>
+</cu-custom>
+
+<view class="order-detail-page">
+  <!-- banner -->
+  <view class="order-detail-banner">
+    <view class="order-detail-status">
+      <view class="order-detail-status-icon">
+        <image class="img" src="../images/logo1.png"></image>
+      </view>
+      <view class="order-detail-status-text">
+        <view class="order-detail-status-text-title">{{status.name}}</view>
+        <view class="order-detail-status-text-description" wx:if="{{status.id==1}}">请前往付款</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 购买人信息 -->
+  <view class="buyer-info">
+    <view class="cuIcon-location"></view>
+    <view class="buyer-info-address">
+      <view class="buyer-info-name">{{orderInfo.contact || ''}} {{orderInfo.mobilePhone || ''}}</view>
+      <view class="buyer-info-address-detail">{{orderInfo.contactAddress || ''}}</view>
+      <view class="buyer-info-address-detail">{{orderInfo.courierName || ''}} {{orderInfo.courierNo || ''}}</view>
+    </view>
+  </view>
+
+  <!-- 商品概览 -->
+  <view class="over-view">
+    <view class="over-view-header">
+      <view class="cuIcon-shop"> 戴生生珠宝</view>
+    </view>
+    <view class="over-view-body">
+      <view class="shop-view">
+        <image class="img" src="{{goodsInfo.goodsImg || defalultImageUrlTz}}" alt="diamond" />
+      </view>
+      <view class="shop-attr">
+        <view class="shop-attr-shape">
+          {{goodsInfo.goodsTypeName}}
+        </view>
+        <view class="shop-attr-specs">
+          {{goodsInfo.goodsDesc}}
+        </view>
+        <view class="shop-attr-total">
+          <text class="shop-attr-total-amount">价格：¥{{goodsInfo.goodsRealPrice}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 定制信息 -->
+  <!-- <view class="custome-made-info">
+    <view class="custome-made-info-header">定制信息</view>
+    <view class="custome-made-info-body">
+      <view>字印（品牌）</view>
+      <view>号码（下单人）</view>
+      <view>备注（品牌）</view>
+    </view>
+  </view> -->
+
+  <!-- 应付金额 -->
+  <view class="meet-amount-info">
+    <view class="custome-made-info-header flex-box">
+      <text>应付总额：</text>
+      <text class="amount flex-3">¥{{goodsInfo.goodsRealPrice}}</text>  
+    </view>
+    <!-- <view class="custome-made-info-body">
+      <view class="flex-box">
+        <text class="flex-1">商品总价</text>
+        <text class="flex-3">¥6545.00</text>
+      </view>
+      <view class="flex-box">
+        <text class="flex-1">运费（快递）</text>
+        <text class="flex-3">¥65.00</text>
+      </view>
+      <view class="flex-box">
+        <text class="flex-1">优惠券</text>
+        <text class="flex-3">¥6.00</text>
+      </view>
+    </view> -->
+  </view>
+
+  <!-- 按钮 -->
+  <view class="order-detail-operation">
+    <button class="btn contact-service" open-type="contact">联系客服</button>
+    <button class="btn cancel-order" wx:if="{{goodsInfo.goodsOrderStatue==1}}" bindtap="cancelOrder">取消订单</button>
+  </view>
+</view>
+
+<!-- 联系客服 -->
+<customer-service wx:if="{{modalShow}}"></customer-service>

@@ -1,0 +1,44 @@
+<view class="person-center">
+  <!-- 个人信息 -->
+  <view class="user-info">
+    <image src="{{userInfo.avatarUrl}}"  class="user-photo" />
+    <view class="user-info-name">
+      <text>{{userInfo.nickName}}</text>
+      <text class="small">{{userInfo.province}}</text>
+    </view>
+  </view>
+  <!-- 购物车，订单，地址 -->
+  <view class="list-menu">
+    <!-- 购物车 -->
+    <view class="cu-list grid col-3 no-border">
+      <view class="cu-item"  bindtap="getShopCar">
+        <view class="cuIcon-cart text-grey"></view>
+        <text>购物车</text>
+      </view>
+      <!-- 订单 -->
+      <view class="cu-item" bindtap="getOrders">
+        <view class="cuIcon-form text-grey"></view>
+        <text>订单</text>
+      </view>
+      <!-- 地址 -->
+      <view class="cu-item" bindtap="chooseAddress">
+        <view class="cuIcon-location text-grey"></view>
+        <text>收货地址</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- <view class="cu-list menu list-contact">
+    <view class="cu-item arrow">
+      <view class="content">
+        <text class="custome-icon-size cuIcon-lock text-blue"></text>修改密码
+      </view>
+    </view>
+    <view class="cu-item arrow">
+      <view class="content">
+        <text class="custome-icon-size cuIcon-newsfill text-blue"></text>个人资料
+      </view>
+    </view>
+  </view> -->
+  
+</view>

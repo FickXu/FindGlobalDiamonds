@@ -1,0 +1,7 @@
+{
+    "backgroundColor": "#f7f7f7",
+    "usingComponents": {
+        "goods-list": "../components/goods-list/goods-list",
+        "customer-service": "../components/customer-service/customer-service"
+    }
+}

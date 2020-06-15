@@ -1,0 +1,6 @@
+{
+    "backgroundColor": "#f7f7f7",
+    "usingComponents": {
+        "customer-service": "../components/customer-service/customer-service"
+    }
+}

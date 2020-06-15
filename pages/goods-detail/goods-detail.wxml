@@ -1,0 +1,98 @@
+<!--pages/home/home.wxml-->
+<cu-custom bgColor="bg-white" isBack="{{true}}">
+	<view slot="content">{{ title }}</view>
+</cu-custom>
+
+<!-- 详情展示 -->
+<view class="shop-car-goods-detail">
+  <!-- 商品图片 -->
+  <view class="shop-car-goods-detail-img">
+    <swiper
+      indicator-dots="{{false}}"
+      autoplay="{{false}}"
+      interval="{{2000}}"
+      duration="{{500}}"
+      class="swiper"
+      >
+      <block wx:for="{{goodsImgs}}" wx:key="*this">
+        <swiper-item>
+          <view class="goods-imgs" style="background-image: url({{item}})"></view>
+          <!-- <image src="{{item}}"></image> -->
+        </swiper-item>
+      </block>
+    </swiper>
+    <!-- <image src="{{detailInfo.smallImg}}" /> -->
+  </view>
+
+  <!-- 商品规格 -->
+  <view class="selected-spec">
+    <view>选择空托规格（共{{specList.length}}种可选）：</view>
+    <picker mode="selector" bindchange="bindSpecChange" value="{{index}}" range="{{specList}}" range-key="label">
+    <view class="picker">
+      {{specList[curentSpecIndex].label}}
+    </view>
+  </picker>
+  </view>
+
+  <!-- 商品信息 -->
+  <view class="shop-car-goods-detail-info">
+    <view class="shop-car-goods-detail-info-vip-price">
+      会员价：<text class="text-bigger" decode="{{true}}">&emsp;¥{{detailInfo.memberPrice}}</text>
+    </view>
+    <view class="shop-car-goods-detail-info-specs">
+     {{detailInfo.title}}
+    </view>
+    <view class="shop-car-goods-detail-info-labels">
+      <text class="shop-car-goods-detail-info-labels-item">货运保价</text>
+      <text class="shop-car-goods-detail-info-labels-item">支持自提</text>
+    </view>
+  </view>
+
+  <view class="shop-car-goods-detail-info-table">
+    <view class="shop-car-goods-detail-info-table-td">商品详情</view>
+    <view class="shop-car-goods-detail-info-table-td">定制说明</view>
+    <view class="shop-car-goods-detail-info-table-td" wx:if="{{detailInfo.barcode}}">条码号：{{detailInfo.barcode}}</view>
+    <view class="shop-car-goods-detail-info-table-td" wx:if="{{detailInfo.cs}}">成色：{{detailInfo.cs}}</view>
+    <view class="shop-car-goods-detail-info-table-td" wx:if="{{detailInfo.zsmc}}">主石名称：{{detailInfo.zsmc}}</view>
+    <view class="shop-car-goods-detail-info-table-td" wx:if="{{detailInfo.goodsNo}}">款号：{{detailInfo.goodsNo}}</view>
+    <view class="shop-car-goods-detail-info-table-td" wx:if="{{detailInfo.zjz}}">总件重：{{detailInfo.zjz}}</view>
+    <view class="shop-car-goods-detail-info-table-td" wx:if="{{detailInfo.jjz}}">净金重：{{detailInfo.jjz}}</view>
+    <view class="shop-car-goods-detail-info-table-td" wx:if="{{detailInfo.hpjz}}">含配金重：{{detailInfo.hpjz}}</view>
+    <view class="shop-car-goods-detail-info-table-td" wx:if="{{detailInfo.sc}}">手寸：{{detailInfo.sc}}</view>
+    <view class="shop-car-goods-detail-info-table-td" wx:if="{{detailInfo.xk}}">主石镶口：{{detailInfo.xk}}</view>
+    <view class="shop-car-goods-detail-info-table-td" wx:if="{{detailInfo.sslb}}">首饰类别：{{detailInfo.sslb}}</view>
+    <view class="shop-car-goods-detail-info-table-td" wx:if="{{detailInfo.xkgy}}">镶口工艺：{{detailInfo.xkgy}}</view>
+    <view class="shop-car-goods-detail-info-table-td" wx:if="{{detailInfo.fszls}}">辅石总粒数：{{detailInfo.fszls}}</view>
+    <view class="shop-car-goods-detail-info-table-td" wx:if="{{detailInfo.fszzl}}">辅石总重量：{{detailInfo.fszzl}}</view>
+    <view class="shop-car-goods-detail-info-table-td" wx:if="{{detailInfo.supplier}}">所属厂家：{{detailInfo.supplier}}</view>
+    <!-- <view class="shop-car-goods-detail-info-table-td"></view> -->
+  </view>
+
+</view>
+  
+<!-- 为你推荐 -->
+<!-- <view class="goods-recommend">
+  <view class="goods-recommend-title">为你推荐</view>
+  <goods-list
+    is-checked="{{false}}"
+    goods-list="{{recommendList}}"
+    ></goods-list>
+</view> -->
+
+<!-- 购买商品 -->
+<view class="cu-bar tabbar bg-white shadow foot">
+  <view class="action text-grey text-green" bindtap="goHomePage">
+    <view class="text-green">
+      <view class="cuIcon-homefill"></view>
+      首页
+    </view>
+  </view>
+
+  <view class="btn-goods-operation">
+    <view class="btn add-shop-car" bindtap="addShopCar">加入购物车</view>
+    <view class="btn buy-now" bindtap="placedirectly">立即购买</view>
+  </view>
+</view>
+
+<!-- 联系客服 -->
+<customer-service wx:if="{{modalShow}}"></customer-service>

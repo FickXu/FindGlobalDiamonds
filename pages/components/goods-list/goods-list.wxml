@@ -1,0 +1,59 @@
+<checkbox-group bindchange="checkboxChange">
+  <view class="goods-list" wx:for="{{_goodsLsit}}" wx:key="{{item.id}}">
+    <!-- 已被下单或下架 -->
+    <view class="invalid-goods" wx:if="{{item.goodsStatue == 2 || item.goodsStatue == 3}}">{{item.goodsStatue == 2 ? '已出售' : '已下架'}}</view>
+    <view class="goods-list-body">
+      <!-- 是否选中 -->
+      <view class="goods-check-box" wx:if="{{isChecked}}">
+        <checkbox class="round blue"  value="{{item.id}}" checked="{{item.checked}}"></checkbox>
+      </view>
+      <!-- 购物车删除商品 -->
+      <view class="goods-delete-box" wx:if="{{isDelete}}">
+        <view
+          class="cuIcon-roundclosefill {{(item.goodsStatue == 2 || item.goodsStatue == 3) ? 'text-white' : ''}}"
+          bindtap="delShopcarById"
+          data-shopcar-id="{{item.shopCarId}}"
+          data-shopcar-index="{{index}}"
+          data-shopcar-type="{{item.goodsTypeShow}}"
+          >
+        </view>
+      </view>
+      <view class="goods-view" data-goods-id="{{item.id}}" data-goods-type="{{item.goodsTypeShow}}">
+        <image style="background-color: #f7f7f7" class="img" src="{{item.smallImg || (item.goodsTypeShow=='gia' ? defalultImageUrlGia : defalultImageUrlTz)}}" alt="diamond" />
+      </view>
+      <view class="goods-attr" data-goods-id="{{item.id}}" data-goods-type="{{item.goodsTypeShow}}">
+        <view class="goods-attr-shape" wx:if="{{item.goodsTypeShow == 'gia'}}">
+          <text wx:if="{{item.zl}}">钻重：{{item.zl}}</text>
+          <text wx:if="{{item.ys}}" decode="{{true}}">&emsp;颜色：{{item.ys}}</text>
+          <text wx:if="{{item.jb}}" decode="{{true}}">&emsp;净度：{{item.jb}}</text>
+          <text wx:if="{{item.xz}}" decode="{{true}}">&emsp;形状：{{item.xz}}</text>
+          <text wx:if="{{item.qg}}" decode="{{true}}">&emsp;切工：{{item.qg}}</text>
+          <text wx:if="{{item.pg}}" decode="{{true}}">&emsp;抛光：{{item.pg}}</text>
+          <text wx:if="{{item.dc}}" decode="{{true}}">&emsp;对称：{{item.dc}}</text>
+          <text wx:if="{{item.yg}}" decode="{{true}}">&emsp;荧光：{{item.yg}}</text>
+          <text wx:if="{{item.zsh}}" decode="{{true}}">&emsp;GIA：{{item.zsh}}</text>
+        </view>
+        <view class="goods-attr-shape" wx:if="{{item.goodsTypeShow == 'tz'}}">
+          <text wx:if="{{item.barcode}}">条码号：{{item.barcode}}</text>
+          <text wx:if="{{item.cs}}" decode="{{true}}">&emsp;成色：{{item.cs}}</text>
+          <text wx:if="{{item.zsmc}}" decode="{{true}}">&emsp;主石名称：{{item.zsmc}}</text>
+          <text wx:if="{{item.goodsNo}}" decode="{{true}}">&emsp;款号：{{item.goodsNo}}</text>
+          <text wx:if="{{item.zjz}}" decode="{{true}}">&emsp;总件重：{{item.zjz}}</text>
+          <text wx:if="{{item.jjz}}" decode="{{true}}">&emsp;净金重：{{item.jjz}}</text>
+          <text wx:if="{{item.hpjz}}" decode="{{true}}">&emsp;含配金重：{{item.hpjz}}</text>
+          <text wx:if="{{item.yg}}" decode="{{true}}">&emsp;手寸：{{item.sc}}</text>
+          <text wx:if="{{item.sc}}" decode="{{true}}">&emsp;主石镶口：{{item.xk}} </text>
+          <text wx:if="{{item.fszls}}" decode="{{true}}">&emsp;辅石总粒数：{{item.fszls}}</text>
+          <text wx:if="{{item.fszzl}}" decode="{{true}}">&emsp;辅石总重量：{{item.fszzl}}</text>
+          <text wx:if="{{item.sslb}}" decode="{{true}}">&emsp;首饰类别：{{item.sslb}}</text>
+        </view>
+        <view class="goods-attr-selling">
+          销售价：<text class="goods-attr-selling-price">¥{{item.goodsRealSellPrice}}</text>
+        </view>
+        <view class="goods-attr-vip">
+          会员价：<text class="goods-attr-vip-price">¥{{item.memberPrice}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</checkbox-group>

@@ -1,0 +1,149 @@
+.shop-car-goods-detail {
+  background-color: #ffffff;
+}
+.shop-car-goods-detail .swiper {
+  height: 640rpx;
+}
+.shop-car-goods-detail .swiper .goods-imgs {
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: auto 100%;
+}
+.shop-car-goods-detail-img {
+  text-align: center;
+  border-bottom: 1px solid #ddccdd;
+}
+.shop-car-goods-detail-img image {
+  max-width: 600rpx;
+  max-height: 600rpx;
+}
+.shop-car-goods-detail .selected-spec {
+  padding: 56rpx 56rpx 0;
+}
+.shop-car-goods-detail-info {
+  padding: 36rpx 56rpx;
+}
+.shop-car-goods-detail-info-vip-price {
+  color: #863d41;
+  margin-top: 20rpx;
+}
+.shop-car-goods-detail-info-vip-price .text-bigger {
+  font-size: 36rpx;
+}
+.shop-car-goods-detail-info-specs {
+  margin-top: 20rpx;
+  color: #3d3d3d;
+}
+.shop-car-goods-detail-info-labels {
+  margin-top: 20rpx;
+}
+.shop-car-goods-detail-info-labels-item {
+  height: 44rpx;
+  line-height: 44rpx;
+  color: #b5b5b5;
+  border: 1px solid #b5b5b5;
+  padding: 0 22rpx;
+  border-radius: 50rpx;
+}
+.shop-car-goods-detail-info-labels-item:not(:first-child) {
+  margin-left: 8rpx;
+}
+.shop-car-goods-detail-info-table {
+  display: inline-block;
+  padding-bottom: 140rpx;
+}
+.shop-car-goods-detail-info-table-td {
+  float: left;
+  width: 50%;
+  height: 100rpx;
+  line-height: 100rpx;
+  text-indent: 30rpx;
+  color: #3d3d3d;
+  position: relative;
+}
+.shop-car-goods-detail-info-table-td::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2rpx;
+  background-color: #dfdfdf;
+}
+.shop-car-goods-detail-info-table-td::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 2rpx;
+  height: 100%;
+  background-color: #dfdfdf;
+}
+.shop-car-goods-detail-info-table-td:nth-child(1) {
+  font-weight: bold;
+}
+.shop-car-goods-detail-info-table-td:nth-child(1)::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 100%;
+  background-color: #dfdfdf;
+}
+.shop-car-goods-detail-info-table-td:nth-child(2) {
+  font-weight: bold;
+}
+.shop-car-goods-detail-info-table-td:nth-child(2)::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 100%;
+  background-color: #dfdfdf;
+}
+.goods-recommend {
+  padding: 0 20rpx 140rpx 20rpx;
+}
+.goods-recommend-title {
+  color: #3d3d3d;
+  margin: 44rpx 0;
+  font-size: 32rpx;
+}
+.btn-goods-operation {
+  min-width: 60%;
+  display: inline-flex;
+}
+.btn-goods-operation .btn {
+  min-width: 48%;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 30rpx;
+  text-align: center;
+  height: 80rpx;
+  line-height: 80rpx;
+}
+.btn-goods-operation .add-shop-car {
+  border-radius: 50rpx 0 0 50rpx;
+  background-color: #ffc200;
+}
+.btn-goods-operation .buy-now {
+  border-radius: 0 50rpx 50rpx 0;
+  background-color: #fe5d00;
+}
+.tips {
+  text-align: center;
+  font-size: 40rpx;
+  margin: 84rpx 40rpx 40rpx;
+  line-height: 60rpx;
+}
+.btn-i-know {
+  color: #ffffff;
+  text-align: center;
+  margin: 20rpx 40rpx 80rpx;
+  height: 84rpx;
+  line-height: 84rpx;
+  font-size: 36rpx;
+}

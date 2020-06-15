@@ -1,0 +1,60 @@
+<!--pages/home/home.wxml-->
+<cu-custom bgColor="bg-white" isBack="{{true}}">
+	<view slot="content">{{ title }}</view>
+</cu-custom>
+
+<view class="shop-car-none" wx:if="{{searchGiaListVOList.length==0 && searchTzListVOList.length==0}}">
+  <text>您还没有添加商品到购物车</text>
+</view>
+<view wx:else>
+  <view class="shop-car-goods">
+    <!-- 购物车商品GIA -->
+    <view wx:if="{{searchGiaListVOList && searchGiaListVOList.length>0}}">
+      <goods-list
+        is-checked="{{true}}"
+        is-select-all="{{isSelectAll}}"
+        is-delete="{{isDelete}}"
+        bind:checkedList="getCheckedGoods"
+        bind:delShopcarGoods="delshopcar"
+        goods-list="{{searchGiaListVOList}}"
+        ></goods-list>
+    </view>
+    <!-- 购物车商品空托 -->
+    <view wx:if="{{searchTzListVOList && searchTzListVOList.length>0}}">
+      <goods-list
+        is-checked="{{true}}"
+        is-select-all="{{isSelectAll}}"
+        is-delete="{{isDelete}}"
+        bind:checkedList="getCheckedGoods"
+        bind:delShopcarGoods="delshopcar"
+        goods-list="{{searchTzListVOList}}"
+        ></goods-list>
+    </view>
+    
+    <!-- 猜你喜欢 -->
+    <!-- <view class="guess-you-like" wx:if="{{recommendedGiaListVOList && recommendedGiaListVOList.length>0}}">
+      <view class="guess-you-like-title">猜你喜欢</view>
+      <goods-list
+        is-checked="{{false}}"
+        goods-list="{{recommendedGiaListVOList}}"
+        ></goods-list>
+    </view> -->
+  </view>
+  
+  <!-- 购买商品 -->
+  <view class="shop-car-buy">
+    <view class="shop-car-buy-all">
+      <checkbox-group bindchange="checkboxChange">
+        <checkbox class="blue round" checked="{{checkedAllStatus}}"></checkbox>
+        <text decode="{{true}}">&emsp;全选</text>
+      </checkbox-group>
+      <view class="total">合计：<text class="amount">¥{{totalAmount}}元</text></view>
+    </view>
+    <view class="shop-car-buy-goods" bindtap="buyGoods">
+      下单
+    </view>
+  </view>
+  
+</view>
+<!-- 联系客服 -->
+<customer-service wx:if="{{modalShow}}"></customer-service>

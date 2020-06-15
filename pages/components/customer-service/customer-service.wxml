@@ -1,0 +1,19 @@
+<!-- 联系客服 -->
+<view class="cu-modal {{modalShow?'show':''}}">
+  <view class="cu-dialog bg-white">
+    <view class="bg-img" style="background-image: url({{bgKFGJ}});height:200px;">
+      <view class="cu-bar justify-end text-white">
+        <view class="action" bindtap="hideModal">
+          <text class="cuIcon-close "></text>
+        </view>
+      </view>
+    </view>
+    <view class="tips">
+      <view >稍后有客服联系您</view>
+      <view >剩余的操作都是线下进行</view>
+    </view>
+    <view class="cu-bar bg-white">
+        <button  class="action margin-0 flex-sub solid-left bg-gold btn-i-know" open-type="contact">联系我们</button>
+    </view>
+  </view>
+</view>
